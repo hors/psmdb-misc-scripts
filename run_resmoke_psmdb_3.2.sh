@@ -101,7 +101,7 @@ runResmoke() {
 
   echo "Running Command: buildscripts/resmoke.py ${resmokeParams}" | tee -a "${logOutputFile}" 
   # shellcheck disable=SC2086
-  python buildscripts/resmoke.py ${resmokeParams} >>"${logOutputFile}" 2>&1
+  python2 buildscripts/resmoke.py ${resmokeParams} >>"${logOutputFile}" 2>&1
 
   if [ -f "killer.log" ]; then
     NR_KILLED=$(grep ">>> START OF PROCESS CLEANUP <<<" killer.log | wc -l)
